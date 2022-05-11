@@ -1,0 +1,13 @@
+.horas {
+    padding-block: 6.25rem;
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: map-get($heading-fw, 'semibold' );
+    }
+    
+    &__description {
+        font-size: 1.375rem;
+        font-weight: map-get($heading-fw, 'thin' );
+    }
+}

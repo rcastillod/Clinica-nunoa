@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Médico Dental Ñuñoa</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="main-nav">
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo-dental-nunoa.png" alt="Dental Ñuñoa">
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-wrapper">
+            <div class="hero__content">
+                <h1>Consultas del día</h1>
+                <p>A continuación se lista la primera y última consulta del día por cada especialidad.</p>
+                <div id="resumen" class="resumen">
+                    <div id="radiologia" class="resumen__item"></div>
+                    <div id="traumatologia" class="resumen__item"></div>
+                    <div id="dental" class="resumen__item"></div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="horas">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="horas__title">Calendario horas del día</h3>
+                        <p class="horas__description">Horas del dia por cada especialidad.</p>
+                        <div id="tabsWrapper" class="calendario" style="margin-top: 50px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Bootstrap Script -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Main Script -->
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>
