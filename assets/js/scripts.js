@@ -136,6 +136,137 @@ let dental = [
 
 let especialidades = ['Radiología', 'Traumatología', 'Dental']
 
+
+/* -------------------------------------------------------------------------- */
+/*                     Agrego nuevas horas a Traumatología                    */
+/* -------------------------------------------------------------------------- */
+let nuevasHoras = [
+    {
+        hora: '09:00',
+        especialista: 'René Poblete',
+        paciente: 'Ana Gellona',
+        rut: '13123329-7',
+        prevision: 'Isapre'
+    },
+    {
+        hora: '09:30',
+        especialista: 'Maria Solar',
+        paciente: 'Ramiro Andrade',
+        rut: '12221451-K',
+        prevision: 'Fonasa'
+    },
+    {
+        hora: '10:00',
+        especialista: 'Raul Loyola',
+        paciente: 'Carmen Isla',
+        rut: '10112348-3',
+        prevision: 'Isapre'
+    },
+    {
+        hora: '10:30',
+        especialista: 'Antonio Larenas',
+        paciente: 'Pablo Loayza',
+        rut: '13453234-1',
+        prevision: 'Isapre'
+    },
+    {
+        hora: '12:00',
+        especialista: 'Matias Aravena',
+        paciente: 'Susana Poblete',
+        rut: '14345656-6',
+        prevision: 'Fonasa'
+    }
+]
+
+let traumatologiaNew = traumatologia.concat(nuevasHoras)
+let sortTraumatologia = traumatologiaNew.sort( (a, b) => {
+    if ( a.hora > b.hora ) {
+        return 1
+    } else if ( a.hora < b.hora ) {
+        return -1
+    }
+    return 0
+})
+
+
+/* -------------------------------------------------------------------------- */
+/*               Elimino primer y último elemento de Radiología               */
+/* -------------------------------------------------------------------------- */
+radiologia.shift()
+radiologia.pop()
+
+
+/* -------------------------------------------------------------------------- */
+/*                 Convierto los elementos de dental en string                */
+/* -------------------------------------------------------------------------- */
+function arrToString(arr, id) {
+    let strWrapper = document.getElementById(id)
+    let list = document.createElement('div')
+    list.classList.add('pacientes-dental')
+
+    arr.forEach( element => {
+        let str = `<i class="fa-solid fa-circle-check"></i> ${element.hora} - ${element.especialista} - ${element.paciente} - ${element.rut} - ${element.prevision}`
+        let parrafo = document.createElement('p')
+        parrafo.innerHTML += str
+        list.appendChild(parrafo)
+    })
+    strWrapper.appendChild(list)
+    
+}
+arrToString(dental, 'horasDental')
+
+
+/* -------------------------------------------------------------------------- */
+/*                     Concateno arreglos y obtengo nombre                    */
+/* -------------------------------------------------------------------------- */
+function concatArr(arr1, arr2, arr3) {
+    let globalArr = arr1.concat(arr2, arr3) 
+    let list = document.createElement('ul')
+
+    globalArr.forEach( element => {
+        let listItem = document.createElement('li')
+        listItem.innerHTML += `<i class="fa-solid fa-user"></i> ${element.paciente}`
+        
+        list.appendChild(listItem)
+    })
+    return list
+}
+
+let pacientesWrapper = document.getElementById('pacientesDia')
+pacientesWrapper.appendChild(concatArr(radiologia, traumatologiaNew, dental))
+
+
+/* -------------------------------------------------------------------------- */
+/*                              Filtro por Isapre                             */
+/* -------------------------------------------------------------------------- */
+function filterIsapre(arr, id) {
+    
+    let pacientesIsapre = arr.filter( element => {
+        if ( element.prevision == 'Isapre' ) {
+            let paciente = `<p><i class="fa-solid fa-circle-check"></i> ${element.paciente} - ${element.prevision}</p>`
+            let wrapper = document.getElementById(id)
+            wrapper.innerHTML += paciente
+        }
+    })
+}
+filterIsapre(dental, 'dentalIsapre')
+
+/* -------------------------------------------------------------------------- */
+/*                              Filtro por Fonasa                             */
+/* -------------------------------------------------------------------------- */
+function filterFonasa(arr, id) {
+    
+    let pacientesIsapre = arr.filter( element => {
+        if ( element.prevision == 'Fonasa' ) {
+            let paciente = `<p><i class="fa-solid fa-circle-check"></i> ${element.paciente} - ${element.prevision}</p>`
+            let wrapper = document.getElementById(id)
+            wrapper.innerHTML += paciente
+        }
+    })
+}
+filterFonasa(traumatologiaNew, 'traumatologiaFonasa')
+
+
 /* -------------------------------------------------------------------------- */
 /*                 Obtengo primera y ultima hora de cada array                */
 /* -------------------------------------------------------------------------- */
@@ -178,9 +309,9 @@ function getHoras(id, arr) {
     
 }
 
-getHoras('radiologia', radiologia)
-getHoras('traumatologia', traumatologia)
-getHoras('dental', dental)
+getHoras('radiologiaRes', radiologia)
+getHoras('traumatologiaRes', traumatologia)
+getHoras('dentalRes', dental)
 
 
 /* -------------------------------------------------------------------------- */
@@ -254,15 +385,15 @@ function createContentTabs(list) {
         }
 
         if ( tabContent.id == 'Radiología' ) {
-            tabContent.append(createTable(radiologia)) // Table append
+            tabContent.append(createTable(radiologia))
         } else if ( tabContent.id == 'Traumatología' ) {
-            tabContent.append(createTable(traumatologia)) // Table append
+            tabContent.append(createTable(sortTraumatologia))
         } else if ( tabContent.id == 'Dental' ) {
-            tabContent.append(createTable(dental)) // Table append
+            //tabContent.append(arrToString(dental, 'dental'))
+            tabContent.append(createTable(dental))
         }
-        console.log(tabContent.id)
 
-        //tabContent.append(createTable(table)) // Table append
+        //tabContent.append(createTable(table))
         tabContentWrapper.appendChild(tabContent)
     }
 
@@ -342,5 +473,4 @@ function getKeyArrObject(arrObject) {
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
-createTab(especialidades, radiologia)
-
+createTab(especialidades)

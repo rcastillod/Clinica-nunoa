@@ -30,9 +30,9 @@
                 <h1>Consultas del día</h1>
                 <p>A continuación se lista la primera y última consulta del día por cada especialidad.</p>
                 <div id="resumen" class="resumen">
-                    <div id="radiologia" class="resumen__item"></div>
-                    <div id="traumatologia" class="resumen__item"></div>
-                    <div id="dental" class="resumen__item"></div>
+                    <div id="radiologiaRes" class="resumen__item"></div>
+                    <div id="traumatologiaRes" class="resumen__item"></div>
+                    <div id="dentalRes" class="resumen__item"></div>
             </div>
         </div>
     </section>
@@ -42,15 +42,44 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="horas__title">Calendario horas del día</h3>
-                        <p class="horas__description">Horas del dia por cada especialidad.</p>
+                        <h3 class="section-title">Calendario horas del día</h3>
+                        <p class="section-description">Horas del dia por cada especialidad.</p>
                         <div id="tabsWrapper" class="calendario" style="margin-top: 50px">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <section class="grid dental left">
+            <div class="bg-wrapper"></div>
+            <div class="content">
+                <div id="horasDental">
+                    <h3 class="section-title">Listado horas Dental</h3>
+                </div>
+                <div id="dentalIsapre">
+                    <h3 class="section-title small">Paciente con Isapre</h3>
+                    
+                </div>
+            </div>
+        </section>
+        <section class="grid pacientes">
+            <div id="pacientesDia" class="content">
+                <h3 class="section-title">Pacientes atendidos en el dia</h3>
+                <p class="section-description">Este es el listado total de pacientes atendidos hoy.</p>
+            </div>
+        </section>
+        <section class="grid traumatologia left">
+            <div class="bg-wrapper"></div>
+            <div class="content">
+                <div id="traumatologiaFonasa">
+                    <h3 class="section-title">Traumatología</h3>
+                    <p class="section-description">Pacientes con Fonasa</p>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <div id="test"></div>
     
     <!-- Bootstrap Script -->
     <script src="assets/js/bootstrap.min.js"></script>

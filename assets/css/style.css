@@ -11269,14 +11269,108 @@ select {
   z-index: 2;
 }
 
-.horas {
+.grid {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  height: 100vh;
+  padding: 0;
+}
+.grid.left {
+  background-color: #FFFFFF;
+}
+.grid.left .bg-wrapper {
+  background-position: center center;
+  background-size: cover;
+  border-bottom-right-radius: 0.625rem;
+  height: 100%;
+}
+.grid.left .content {
+  grid-column: 2;
+  padding-inline: 6.25rem;
+}
+.grid.left .content #horasDental {
+  margin-bottom: 2.5rem;
+}
+.grid.left .content p:not(.section-description) {
+  font-size: 1.125rem;
+  font-weight: 100;
+}
+.grid.left .content p:not(.section-description):not(:last-child) {
+  margin-block-end: 0.3125rem;
+}
+.grid.left .content i {
+  color: #01cab8;
+  margin-right: 0.625rem;
+}
+.grid.dental .bg-wrapper {
+  background-image: url(../img/dental-bg.jpeg);
+}
+.grid.dental .content #horasDental {
+  margin-bottom: 2.5rem;
+}
+.grid.dental .section-title {
+  margin-bottom: 1.875rem;
+}
+.grid.dental .section-title.small {
+  margin-bottom: 1.25rem;
+}
+.grid.pacientes {
+  background-attachment: fixed;
+  background-image: url(../img/section-bg.jpeg);
+  background-position: center center;
+  background-size: cover;
+  grid-template-columns: 30% 70%;
+  height: auto;
   padding-block: 6.25rem;
 }
-.horas__title {
+.grid.pacientes .content {
+  background-image: url(../img/pacientes-bg.jpeg);
+  background-position: center bottom;
+  background-size: cover;
+  border-top-left-radius: 0.625rem;
+  border-bottom-left-radius: 0.625rem;
+  grid-column: 2;
+  padding: 5rem 3.125rem;
+}
+.grid.pacientes .content ul {
+  column-count: 2;
+  list-style-type: none;
+  margin-top: 3.125rem;
+  max-width: 31.25rem;
+  padding: 0;
+}
+.grid.pacientes .content ul li:not(:last-child) {
+  margin-bottom: 0.3125rem;
+}
+.grid.pacientes .content ul i {
+  color: #01cab8;
+  margin-inline-end: 0.625rem;
+}
+.grid.traumatologia .bg-wrapper {
+  background-image: url(../img/dental-bg.jpeg);
+}
+.grid.traumatologia .content .section-description {
+  margin-bottom: 1.875rem;
+}
+
+section {
+  padding-block: 6.25rem;
+}
+section.horas {
+  background-attachment: fixed;
+  background-image: url(../img/section-bg.jpeg);
+  background-position: center center;
+  background-size: cover;
+}
+section .section-title {
   font-size: 2.5rem;
   font-weight: 600;
 }
-.horas__description {
+section .section-title.small {
+  font-size: 1.625rem;
+}
+section .section-description {
   font-size: 1.375rem;
   font-weight: 100;
 }
@@ -11325,7 +11419,7 @@ select {
   border-radius: 0.625rem;
   display: flex;
   flex-direction: column;
-  gap: 0.3125rem;
+  gap: 0.625rem;
   padding: 1.25rem;
 }
 .resumen__item h3, .resumen__item .h3 {
