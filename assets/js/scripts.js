@@ -271,13 +271,13 @@ filterFonasa(traumatologiaNew, 'traumatologiaFonasa')
 /*                 Obtengo primera y ultima hora de cada array                */
 /* -------------------------------------------------------------------------- */
 
-function getHoras(id, arr) {
+function getHoras(id, arr, name) {
     
     let last = arr.length-1
     let idWrapper = document.getElementById(id)
 
     let resumeContent = `
-    <h3>${id}</h3>
+    <h3>${name}</h3>
     <div>
         <div class="atencion">
             <div class="atencion__header">
@@ -309,9 +309,9 @@ function getHoras(id, arr) {
     
 }
 
-getHoras('radiologiaRes', radiologia)
-getHoras('traumatologiaRes', traumatologia)
-getHoras('dentalRes', dental)
+getHoras('radiologiaRes', radiologia, 'Radiología')
+getHoras('traumatologiaRes', traumatologia, 'Traumatología')
+getHoras('dentalRes', dental, 'Dental')
 
 
 /* -------------------------------------------------------------------------- */
